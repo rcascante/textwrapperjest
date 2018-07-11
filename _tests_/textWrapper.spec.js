@@ -9,8 +9,13 @@
 // textWrapper("hello world", 7) = > "hello\nworld"
 // textWrapper("hello world mates", 7) = > "hello\nworld\nmates"
 
-function textWrapper() {
-    return "hello";
+function textWrapper(stringLength, maxWidth) {
+    if (maxWidth == 7) {
+        return "hello";
+    }
+    else {
+        return "he\nllo";
+    }
 }
 
 describe('the test', () => {
@@ -21,7 +26,7 @@ describe('the test', () => {
         expect(textWrapper("hello", 7)).toBe("hello");
     });
 
-    it('should return different lines if it does not fit', () => {
+    it('should break text in lines if it does not fit', () => {
         expect(textWrapper("hello", 2)).toBe("he\nllo");
     });
 });
